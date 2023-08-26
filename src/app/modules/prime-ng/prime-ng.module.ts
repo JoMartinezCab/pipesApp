@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 //Modules PrimeNg
 import { MenuModule } from 'primeng/menu';
+import { MenubarModule } from 'primeng/menubar';
 
 @NgModule({
   declarations: [],
   exports: [
-    MenuModule
+    MenuModule,
+    MenubarModule
   ],
   imports: [
     CommonModule

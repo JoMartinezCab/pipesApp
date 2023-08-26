@@ -8,11 +8,17 @@ import { PrimeNGConfig } from 'primeng/api';
 
 
 //Modules
-import { SharedModule } from './shared/shared.module';
+import { SharedModule } from './modules/shared/shared.module';
+import { BasicPagesComponent } from './modules/pages/basic-pages/basic-pages.component';
+import { NumberPageComponent } from './modules/pages/number-page/number-page.component';
+import { UncommonPageComponent } from './modules/pages/uncommon-page/uncommon-page.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BasicPagesComponent,
+    NumberPageComponent,
+    UncommonPageComponent
   ],
   imports: [
     BrowserModule,
