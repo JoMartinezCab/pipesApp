@@ -1,4 +1,4 @@
-import { NgModule, OnInit } from '@angular/core';
+import { LOCALE_ID, NgModule, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -6,19 +6,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PrimeNGConfig } from 'primeng/api';
 
-
 //Modules
 import { SharedModule } from './modules/shared/shared.module';
-import { BasicPagesComponent } from './modules/pages/basic-pages/basic-pages.component';
-import { NumberPageComponent } from './modules/pages/number-page/number-page.component';
-import { UncommonPageComponent } from './modules/pages/uncommon-page/uncommon-page.component';
+
+//Config locale
+import localEsCo from '@angular/common/locales/es-CO';
+import localFrCa from '@angular/common/locales/fr-CA';
+import { registerLocaleData } from '@angular/common';
+
+
+registerLocaleData(localEsCo);
+registerLocaleData(localFrCa);
 
 @NgModule({
   declarations: [
-    AppComponent,
-    BasicPagesComponent,
-    NumberPageComponent,
-    UncommonPageComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,9 @@ import { UncommonPageComponent } from './modules/pages/uncommon-page/uncommon-pa
     AppRoutingModule,
     SharedModule
   ],
-  providers: [],
+  providers: [
+    {provide: LOCALE_ID, useValue: 'es-CO'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule implements OnInit{

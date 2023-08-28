@@ -1,1 +1,80 @@
-<p>uncommon-page works!</p>
+<p-panel [showHeader]="false" class="pt-2">
+  <h1>Pipes no tan comunes</h1>
+  <p>Pipes en Angular incluidos en el Common Module</p>
+</p-panel>
+
+<div class="grid mt-2">
+  <div class="col-12 md:col-6">
+    <p-card>
+      <p-fieldset legend="i18nSelect Pipe" [toggleable]="true">
+        <p>
+          Saludos {{ name }}, es un placer {{gender | i18nSelect:invitationMap}}
+        </p>
+
+        <p-button
+          (click)="changeClient()"
+          label="Cambiar persona"
+        ></p-button>
+      </p-fieldset>
+    </p-card>
+  </div>
+  <div class="col-12 md:col-6">
+    <p-card>
+      <p-fieldset legend="i18nPlural Pipe" [toggleable]="true">
+        <p>Actualmente {{clients.length | i18nPlural:clientsMap }} </p>
+      </p-fieldset>
+
+      <p-button
+        (click) = deleteClient()
+        label="Borrar cliente">
+      </p-button>
+    </p-card>
+  </div>
+
+  <div class="col-12 md:col-6">
+    <p-card>
+      <p-fieldset legend="Slice Pipe" [toggleable]="true">
+        <b>Original</b>
+        <pre>{{ clients  }}</pre>
+
+        <b>Slice:0:2</b>
+        <pre>{{ clients | slice:0:2  }}</pre>
+
+        <b>Slice:1:2</b>
+        <pre>{{ clients | slice:1:2  }}</pre>
+
+        <b>Slice:0:-2</b>
+        <pre>{{ clients | slice:0:-2  }}</pre>
+
+        <b>Slice:1:-2</b>
+        <pre>{{ clients | slice:1:-2  }}</pre>
+      </p-fieldset>
+    </p-card>
+  </div>
+  <div class="col-12 md:col-6">
+    <p-card>
+      <p-fieldset legend="Json Pipe" [toggleable]="true">
+        <pre>{{ person | json }}</pre>
+      </p-fieldset>
+    </p-card>
+  </div>
+
+  <div class="col-12 md:col-6">
+    <p-card>
+      <p-fieldset legend="KeyValue Pipe" [toggleable]="true">
+        <ul>
+          <li *ngFor="let item of person | keyvalue">
+            <pre>{{ item | json }}</pre>
+          </li>
+        </ul>
+      </p-fieldset>
+    </p-card>
+  </div>
+  <div class="col-12 md:col-6">
+    <p-card>
+      <p-fieldset legend="Async Pipe" [toggleable]="true">
+        <pre>{{ myObservableTimer | async }}</pre>
+      </p-fieldset>
+    </p-card>
+  </div>
+</div>
